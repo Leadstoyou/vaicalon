@@ -25,7 +25,7 @@ const createNewIssueSetting = async (req, res) => {
 };
 const getAllIssueSettings = async (req, res) => {
   try {
-    const {sortColumn, sortDirection} = req.query;
+    const {sortColumn="subject_id", sortDirection="asc"} = req.query;
     console.log("🚀 ~ file: issueSettingController.js:29 ~ getAllIssueSettings ~ sortColumn, sortDirection:", sortColumn, sortDirection)
     const issueSettings = await issueSettingRepository.getAllIssueSettings(sortColumn, sortDirection);
     res.json(issueSettings);
