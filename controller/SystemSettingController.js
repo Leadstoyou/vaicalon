@@ -1,4 +1,4 @@
-import { subRepository } from "../repository/IndexRepository.js";
+import { systemSettingRepository } from "../repository/IndexRepository.js";
 
 const createNewSemester = async (req, res) => {
   try {
@@ -9,7 +9,7 @@ const createNewSemester = async (req, res) => {
       start_date,
       end_date,
     };
-    const newSemester = await subRepository.createNewSemester(newSemesterData);
+    const newSemester = await systemSettingRepository.createNewSemester(newSemesterData);
     res.json(newSemester);
   } catch (error) {
     res.json("not found");
@@ -22,7 +22,7 @@ const createNewUserRole = async (req, res) => {
       role_name,
       role_description,
     };
-    const newSemester = await subRepository.createNewUserRole(newUserRoleData);
+    const newSemester = await systemSettingRepository.createNewUserRole(newUserRoleData);
     res.json(newSemester);
   } catch (error) {
     res.json("not found");
@@ -30,10 +30,10 @@ const createNewUserRole = async (req, res) => {
 };
 const getAllSemester = async (req, res) => {
   try {
-    const result = await semesterRepository.getAllSemester();
+    const result = await systemSettingRepository.getAllSemester();
     res.json(result);
   } catch (error) {
     res.json("not found");
   }
 };
-export default { createNewSemester, createNewUserRole};
+export default { createNewSemester, createNewUserRole,getAllSemester};
